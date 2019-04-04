@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace GameNamespace
 {
-    public class CardStock
+    public class CardStock:IEnumerable<Card>
     {
-        static Random random = new Random();
+        private static Random random = new Random();
+        public const int NUM_CARDS = 26;
         List<Card> cards;
 
         #region ctor
@@ -34,7 +36,7 @@ namespace GameNamespace
                 klaf1 = random.Next(0, 26);
                 do
                 {
-                    klaf2 = random.Next(0, 26);
+                    klaf2 = random.Next(0, NUM_CARDS);
                 }
                 while (klaf1 == klaf2);
 
@@ -45,7 +47,7 @@ namespace GameNamespace
         {
             get
             {
-                if(index <0 || index > 25)
+                if(index <0 || index > (NUM_CARDS-1))
                 {
                     return null;
                 }
@@ -88,7 +90,19 @@ namespace GameNamespace
         {
             return base.ToString();
         }
-        #endregion
+        #endregion ovveride
+
+        #region IEnumerable
+        public IEnumerator<Card> GetEnumerator()
+        {
+            return cards.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+           return this.GetEnumerator();
+        }
+        #endregion IEnumerable
 
     }
 }

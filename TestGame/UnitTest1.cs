@@ -35,7 +35,11 @@ namespace TestGame
         [TestMethod]
         public void kukuMethod4U()
         {
-            //TO DO
+            CardStock cardDeck = new CardStock();
+            foreach (Card item in cardDeck)
+            {
+                Console.WriteLine(item);
+            }
         }
         [TestMethod]
         public void TestMethod2()

@@ -95,7 +95,6 @@ namespace GameNamespace
             return number.CompareTo(other.number);
         }
 
-
         #endregion
 
         #region ctors
@@ -116,6 +115,7 @@ namespace GameNamespace
                 else  throw ex;
             }
         }
+        //explicit default constructor
         public Card()  { }
         #endregion
     }
