@@ -8,21 +8,19 @@ namespace GameNamespace
 {
     public class Game
     {
-        private Player player1;
-        private Player player2;
+        private Player[] players = new Player[2];
         private CardStock cardDeck = new CardStock();
 
-        public Game()
+         public Game(params Player[] players  )
         {
-
+            for (int i = 0; i < players.Length; i++)
+            {
+                this.players[i] = players[i];
+            }
+ 
+            distribute(players);
         }
-        public Game(Player p1, Player p2)
-        {
-            player1 = p1;
-            player2 = p2;
 
-            distribute(player1, player2);
-        }
         public void distribute(params Player[] players)
         {
             int i = 0;

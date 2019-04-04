@@ -11,7 +11,7 @@ namespace UI
     {
         static void Main(string[] args)
         {
-            string option=null;
+            string option = null;
             do
             {
                 Console.WriteLine("Do you want to play the game?");
@@ -43,8 +43,10 @@ namespace UI
 
         static void playGame()
         {
-           Game game = new Game();
-           game.start();
+            Player me = new Player { Name = "me" };
+            Player you = new Player { Name = "you" };
+            Game game = new Game(me, you);
+            game.start();
         }
     }
 }
